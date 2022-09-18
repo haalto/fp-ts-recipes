@@ -2,11 +2,11 @@ import * as E from "fp-ts/lib/Either";
 import { decodeWith, person } from "../src/io";
 
 describe("io-ts examples", () => {
-  it("should decode unkown to person", async () => {
+  it("should decode unkown to person", () => {
     const personData = {
       name: "John",
     };
-    const result = await decodeWith(person)(personData)();
+    const result = decodeWith(person)(personData);
     expect(result).toEqual(E.right(personData));
   });
 
@@ -14,7 +14,7 @@ describe("io-ts examples", () => {
     const personData = {
       name: 1,
     };
-    const result = await decodeWith(person)(personData)();
+    const result = decodeWith(person)(personData);
     expect(E.isLeft(result)).toBe(true);
   });
 
@@ -22,7 +22,7 @@ describe("io-ts examples", () => {
     const personData = {
       age: 1,
     };
-    const result = await decodeWith(person)(personData)();
+    const result = decodeWith(person)(personData);
     expect(E.isLeft(result)).toBe(true);
   });
 });

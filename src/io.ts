@@ -13,6 +13,5 @@ export type Person = t.TypeOf<typeof person>;
 export const decodeWith = <A>(decoder: t.Decoder<unknown, A>) =>
   flow(
     decoder.decode,
-    E.mapLeft((errors) => new Error(failure(errors).join("\n"))),
-    TE.fromEither
+    E.mapLeft((errors) => new Error(failure(errors).join("\n")))
   );
