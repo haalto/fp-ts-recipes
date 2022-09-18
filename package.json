@@ -19,5 +19,10 @@
     "typescript": "^4.8.3"
   },
   "author": "Hannes Aaltonen - github.com/haalto",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "fp-ts": "^2.12.3",
+    "io-ts": "^2.2.18"
+  }
 }
