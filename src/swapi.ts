@@ -7,5 +7,6 @@ export const getPersonById = (id: number): TE.TaskEither<Error, Person> =>
   pipe(
     get(`https://swapi.dev/api/people/${id}`),
     TE.map((response) => response.data),
-    TE.chain((d) => TE.fromEither(decodeWith(person)(d)))
+    TE.map(decodeWith(person)),
+    TE.chain(TE.fromEither)
   );
